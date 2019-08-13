@@ -10,7 +10,7 @@ class Alekseon_AntiBruteforce_Adminhtml_AntiBruteforce_BlockedController extends
 
     protected function _isAllowed()
     {
-        return Mage::getSingleton('admin/session')->isAllowed('system/alekseon_tools/sent_emails_history');
+        return Mage::getSingleton('admin/session')->isAllowed('system/alekseon_tools/anti_bruteforce');
     }
 
     public function indexAction()
@@ -34,7 +34,7 @@ class Alekseon_AntiBruteforce_Adminhtml_AntiBruteforce_BlockedController extends
     {
         $blockedIds = $this->getRequest()->getParam('blocked_id');      // $this->getMassactionBlock()->setFormFieldName('tax_id'); from Mage_Adminhtml_Block_Tax_Rate_Grid
         if(!is_array($blockedIds)) {
-            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('tax')->__('Please select ip(s).'));
+            Mage::getSingleton('adminhtml/session')->addError('Please select ip(s).');
         } else {
             try {
                 $blockedModel = Mage::getModel('alekseon_antibruteforce/blocked');

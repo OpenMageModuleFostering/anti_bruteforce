@@ -68,7 +68,7 @@ class Alekseon_AntiBruteforce_Model_Observer
             ->addFieldToFilter('ip', $ip)
             ->getFirstItem();
         if($blocked->getId()){
-            throw new Mage_Core_Exception(Mage::helper('enterprise_pci')->__('This IP is locked by Alekseon AntiBruteForce module'));
+            throw new Mage_Core_Exception('This IP is locked by Alekseon AntiBruteForce module');
         }
     }
     

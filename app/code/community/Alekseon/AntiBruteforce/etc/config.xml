@@ -10,7 +10,7 @@
 <config>
     <modules>
         <Alekseon_AntiBruteforce>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
         </Alekseon_AntiBruteforce>
     </modules>
     <global>
