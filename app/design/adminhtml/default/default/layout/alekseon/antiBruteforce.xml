@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author    Lukasz Linczewski
+ * @email     contact@alekseon.com
+ * @company   Alekseon
+ * @website   www.alekseon.com
+ */
+-->
+<layout>
+    <adminhtml_antibruteforce_blocked_index>
+        <reference name="content">
+            <block type="alekseon_antibruteforce/adminhtml_blocked" name="anti_bruteforce_grid_conatiner" />
+        </reference>
+    </adminhtml_antibruteforce_blocked_index>
+</layout>

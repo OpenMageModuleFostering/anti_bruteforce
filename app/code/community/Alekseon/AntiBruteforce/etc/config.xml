@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author    Lukasz Linczewski
+ * @email     contact@alekseon.com
+ * @company   Alekseon
+ * @website   www.alekseon.com
+ */
+-->
+<config>
+    <modules>
+        <Alekseon_AntiBruteforce>
+            <version>0.1.0</version>
+        </Alekseon_AntiBruteforce>
+    </modules>
+    <global>
+        <models>
+            <alekseon_antibruteforce>
+                <class>Alekseon_AntiBruteforce_Model</class>
+                <resourceModel>alekseon_antibruteforce_resource</resourceModel>
+            </alekseon_antibruteforce>
+            <alekseon_antibruteforce_resource>
+                <class>Alekseon_AntiBruteforce_Model_Resource</class>
+                <entities>
+                    <attemp>
+                        <table>alekseon_antibruteforce_attemp</table>
+                    </attemp>
+                    <blocked>
+                        <table>alekseon_antibruteforce_blocked</table>
+                    </blocked>
+                </entities>
+            </alekseon_antibruteforce_resource>
+        </models>
+        <blocks>
+            <alekseon_antibruteforce>
+                <class>Alekseon_AntiBruteforce_Block</class>
+            </alekseon_antibruteforce>
+        </blocks>
+        <helpers>
+            <alekseon_antibruteforce>
+                <class>Alekseon_AntiBruteforce_Helper</class>
+            </alekseon_antibruteforce>
+        </helpers>
+        <resources>
+            <alekseon_antibruteforce_setup>
+                <setup>
+                    <module>Alekseon_AntiBruteforce</module>
+                </setup>
+            </alekseon_antibruteforce_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <alekseon_antibruteforce>
+                    <file>alekseon/antiBruteforce.xml</file>
+                </alekseon_antibruteforce>
+            </updates>
+        </layout>
+        <events>
+            <admin_session_user_login_failed>
+                <observers>
+                    <alekseon_antibruteforce>
+                        <type>singleton</type>
+                        <class>alekseon_antibruteforce/observer</class>
+                        <method>handleAttemp</method>
+                    </alekseon_antibruteforce>
+                </observers>
+            </admin_session_user_login_failed>
+            <adminhtml_controller_action_predispatch_start>
+                <observers>
+                    <alekseon_antibruteforce>
+                        <type>singleton</type>
+                        <class>alekseon_antibruteforce/observer</class>
+                        <method>checkIfBlocked</method>
+                    </alekseon_antibruteforce>
+                </observers>
+            </adminhtml_controller_action_predispatch_start>
+        </events>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <alekseon_antibruteforce before="Mage_Adminhtml">Alekseon_AntiBruteforce_Adminhtml</alekseon_antibruteforce>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

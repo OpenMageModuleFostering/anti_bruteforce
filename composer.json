@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/anti_bruteforce",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "Monitor admin login failure and block admin for IP",
+    "authors": [
+    {
+        "name": "Lukasz Linczewski",
+        "email": "contact@alekseon.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
