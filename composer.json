@@ -1,5 +1,5 @@
 {
-    "name": "OpenMageModuleFostering\/anti_bruteforce",
+    "name": "openmage-module-fostering\/anti_bruteforce",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
